@@ -16,7 +16,7 @@
 
 from openai import OpenAI
 
-model_file_path = ["/data3/xj/pre_model/Qwen3.5-27B", "/data3/xj/pre_model/gemma-4-31B-it"][0]
+model_file_path = ["/data3/xj/pre_model/Qwen3.5-4B-grpo"][0]
 
 # 全局客户端实例（延迟初始化）
 _client = None
