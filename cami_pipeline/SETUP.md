@@ -39,7 +39,7 @@ bash start_vllm.sh
 
 # 方法 2: 手动启动
 export VLLM_USE_MODELSCOPE=true
-python -m vllm.entrypoints.cli.main serve /data3/xj/pre_model/Qwen3.5-27B \
+python -m vllm.entrypoints.cli.main serve /data3/xj/pre_model/Qwen3.5-4B-grpo \
     --port 8000 \
     --tensor-parallel-size 8 \
     --max-model-len 262144 \
