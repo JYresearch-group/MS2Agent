@@ -14,7 +14,7 @@ export VLLM_USE_MODELSCOPE=true
 export VLLM_ATTENTION_BACKEND=FLASH_ATTN  # 或尝试 TORCH_SDPA
 
 # 模型路径
-MODEL_PATH="/root/autodl-tmp/shiyan/pre_model/Qwen3.5-9B"
+MODEL_PATH="/root/autodl-tmp/shiyan/output/Qwen3.5-4B-grpo"
 # 或使用 gemma 模型作为备选（非视觉模型）
 # MODEL_PATH="/data3/xj/pre_model/gemma-4-31B-it"
 
