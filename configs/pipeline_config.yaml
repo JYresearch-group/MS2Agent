@@ -1,0 +1,44 @@
+# MS2Agent Pipeline Configuration
+
+# Matcher score combination
+matcher:
+  alpha: 0.5  # weight for cosine similarity vs BERT-Sim probability
+  # s_i = alpha * cosine(V_MS, V_str,i) + (1 - alpha) * P_BERT,i
+
+# Embedding model
+embedding:
+  model: Qwen3-Embedding-0.8B
+
+# Candidate retrieval
+retrieval:
+  pubchem_route:
+    max_formulas: 10
+    candidates_per_formula: 200
+    mass_tolerance_ppm: 10
+    top_candidates_for_rerank: 40
+  self_built_library:
+    top_candidates: 20
+
+# Reranker
+reranker:
+  model: gpt-5.4-mini
+  num_candidates_pubchem: 40
+  num_candidates_self_built: 20
+  confidence_labels: [low, medium, high]
+
+# Evidence priority (for reranking)
+evidence_priority:
+  1: exact_mass_adduct_consistency
+  2: neutral_loss_representative_fragment_consistency
+  3: acid_base_heteroatom_functional_group_ion_mode_compatibility
+  4: fragile_bond_likely_loss_consistency
+  5: scaffold_chemical_family_similarity
+
+# Preprocessing
+preprocessing:
+  precursor_match_tolerance_da: 0.01
+  candidate_mass_filter_da: 0.05
+  neutral_loss_range_da: [0.5, 300]
+  peak_summary_top_k: 25
+  mz_decimal_places_preprocessing: 6
+  mz_decimal_places_summary: 4

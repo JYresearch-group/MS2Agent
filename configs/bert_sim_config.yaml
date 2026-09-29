@@ -1,0 +1,19 @@
+# BERT-Sim Training Configuration
+# Corresponds to Table S4 in Supplementary Information
+
+base_model: bert-base-uncased
+optimizer: AdamW
+learning_rate: 5.0e-5
+batch_size: 16
+epochs: 3
+loss: binary_cross_entropy
+max_sequence_length: 512
+weight_decay: 0.0
+warmup_steps: 50
+adam_epsilon: 1.0e-8
+max_gradient_norm: 1.0
+gradient_accumulation_steps: 1
+
+# Negative sampling
+negative_sampling_ratio: "1:3"  # positive:negative per batch
+negative_sampling_source: in-batch + PubChem random

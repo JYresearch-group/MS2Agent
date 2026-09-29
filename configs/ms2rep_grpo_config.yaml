@@ -1,0 +1,30 @@
+# MS2Rep-0.8B-GRPO Training Configuration
+# Corresponds to Table S4 in Supplementary Information
+
+base_model: Qwen3.5-0.8B
+optimization: GRPO
+
+# Optimizer
+optimizer: AdamW
+learning_rate: 1.0e-6
+lr_schedule: constant
+weight_decay: 0.01
+gradient_clipping: 1.0
+
+# Training
+ppo_epochs: 1
+batch_size_prompts_per_step: 4
+rollout_group_size: 6
+kl_coefficient: 0.01
+max_new_tokens: 1024
+
+# Reward function weights (sum = 1.0)
+reward_weights:
+  mass_accuracy_ion_form: 0.31        # w1: mass deviation + mass/ion-form consistency
+  fragment_ion_coverage: 0.29         # w2: fragment-peak match counting (±0.5 Da)
+  neutral_loss_plausibility: 0.20     # w3: common-loss pattern matching
+  structural_evidence_grounding: 0.14 # w4: functional-group rule matching
+  output_integrity: 0.06             # w5: JSON field completeness
+
+# Hardware: NVIDIA RTX 4080 SUPER (32 GB)
+# CUDA: 12.8, cuDNN: 8.9

@@ -1,0 +1,52 @@
+{
+    "algorithm_id": 19,
+    "hyper_param_strategy": "CUSTOMED",
+    "ADDITIONAL_SPECIAL_TOKENS": [],
+    "model_dir": "./output/model_bert_1",
+    "data_dir": "./data",
+    "model_type": "bert",
+    "task_type": "classification",
+    "seed": 1234,
+    "train_batch_size": 16,
+    "eval_batch_size": 16,
+    "max_seq_len": 512,
+    "learning_rate": 5e-05,
+    "num_train_epochs": 3,
+    "weight_decay": 0.0,
+    "gradient_accumulation_steps": 1,
+    "adam_epsilon": 1e-08,
+    "max_grad_norm": 1.0,
+    "max_steps": -1,
+    "warmup_steps": 0,
+    "dropout_rate": 0.1,
+    "logging_steps": 200,
+    "save_steps": 200,
+    "is_gru": false,
+    "is_lstm": false,
+    "hidden_dim": 128,
+    "n_layers": 1,
+    "bidirectional": true,
+    "no_cuda": false,
+    "ignore_index": 0,
+    "do_train": true,
+    "do_eval": true,
+    "train_file_url": "./o_data/train_12290.json",
+    "dev_file_url": "./o_data/dev_3073.json",
+    "test_file_url": "./o_data/dev_3073.json",
+    "model_save_path": "./output/model_bert_1",
+    "model_flag": "bert",
+    "model_name_or_path": "/root/autodl-tmp/model/bert-base-uncased",
+    "num_classes": 2,
+    "label_id": {
+        "1": 0,
+        "0": 1
+    },
+    "id_label": {
+        "0": "1",
+        "1": "0"
+    },
+    "labels": [
+        "1",
+        "0"
+    ]
+}
